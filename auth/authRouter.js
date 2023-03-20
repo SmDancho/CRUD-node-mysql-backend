@@ -1,7 +1,7 @@
 const Router = require('express');
 const router = new Router();
 
-const { registration, login, getMe, blockUser ,unblockUser,deleteUser } = require('./authController');
+const { registration, login, getMe, blockUser ,unblockUser,deleteUser,getUsers } = require('./authController');
 const { body } = require('express-validator');
 const authMiddleware = require('../middleware/authMiddleware');
 
@@ -27,5 +27,8 @@ router.post('/unblock', (req, res) => {
 
 router.post('/delete', (req,res) => {
   deleteUser(req,res)
+})
+router.get('/users',authMiddleware, (req,res) => {
+  getUsers(req, res)
 })
 module.exports = router;

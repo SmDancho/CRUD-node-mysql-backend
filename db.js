@@ -1,20 +1,15 @@
-
 const mysql = require('mysql');
 
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  database: 'nodejsTask4',
-  password: '',
+const connection = mysql.createPool({
+  host: 'bg0crc83dfwlxg2hnogi-mysql.services.clever-cloud.com',
+  user: 'ugrsqhfdjcrtqloy',
+  password: 'cDuEnPXZJlZSm2C1MXC1',
+  database: 'bg0crc83dfwlxg2hnogi',
+  port: 3306,
 });
 
-connection.connect((err) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log('db ok');
-  }
-});
+if (connection) {
+  console.log('db ok');
+}
 
-
-module.exports = connection
+module.exports = connection;
