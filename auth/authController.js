@@ -158,7 +158,7 @@ const getMe = async (req, res) => {
         message: 'user is not defined',
       });
     }
-    const token = generateAccessToken(User?.id);
+    const token = generateAccessToken(req.userId);
     return res.json({ User, token });
   });
 };
